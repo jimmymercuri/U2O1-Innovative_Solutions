@@ -1,0 +1,147 @@
+.submit-report {
+  width: 100%;
+  min-height: 100vh;
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 32px;
+}
+
+.submit-report-title {
+  width: 100%;
+  max-width: 1000px;
+
+  box-sizing: border-box;
+
+  margin: 0 0 24px 0;
+  padding: 28px;
+
+  border: 2px solid var(--text);
+
+  font-size: 48px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.submit-report-form {
+  width: 100%;
+  max-width: 1000px;
+
+  display: flex;
+  gap: 32px;
+
+  box-sizing: border-box;
+}
+
+.report-left,
+.report-right {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+.report-name,
+.report-hazard,
+.report-extent,
+.report-escalation,
+.report-exposure,
+.report-issue,
+.report-description,
+.report-submit {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  border: 2px solid var(--text);
+  background: transparent;
+
+  font-family: inherit;
+  font-size: 22px;
+
+  padding: 14px;
+}
+
+.report-name,
+.report-hazard,
+.report-extent,
+.report-escalation,
+.report-exposure,
+.report-issue {
+  height: 56px;
+}
+
+.report-name {
+  text-align: center;
+}
+
+.report-description {
+  flex: 1;
+  min-height: 410px;
+
+  resize: none;
+
+  text-align: center;
+  padding-top: 170px;
+}
+
+.report-hazard,
+.report-extent,
+.report-escalation,
+.report-exposure,
+.report-issue {
+  text-align: center;
+}
+
+.report-issue {
+  appearance: auto;
+}
+
+.report-submit {
+  min-height: 110px;
+
+  cursor: pointer;
+
+  font-size: 28px;
+  text-align: center;
+}
+
+.report-submit:hover {
+  opacity: 0.85;
+}
+
+.report-name::placeholder,
+.report-hazard::placeholder,
+.report-extent::placeholder,
+.report-escalation::placeholder,
+.report-exposure::placeholder,
+.report-description::placeholder {
+  color: var(--text);
+  opacity: 1;
+}
+
+@media (max-width: 700px) {
+  .submit-report {
+    padding: 16px;
+  }
+
+  .submit-report-title {
+    font-size: 36px;
+    padding: 20px;
+  }
+
+  .submit-report-form {
+    flex-direction: column;
+  }
+
+  .report-description {
+    min-height: 250px;
+    padding-top: 100px;
+  }
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Eco-Project</title>
+
+  <link rel="stylesheet" href="/styles/global.css">
+  <link rel="stylesheet" href="/styles/submit-report.css">
+
+</head>
+<body>
+  <div id="app"></div>
+
+  <script type="module" src="/index.js"></script>
+  <script>
+var reportViewActive = false;
+
+  async function site(id) {
+    const response = await fetch(`/api/sites/${id}`, {
+      method: "GET",
+      credentials: "same-origin"
+    });
+
+    if (!response.ok) {
+      throw new Error(`Unable to retrieve site: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    return data.site;
+  }
+
+  var currentSite = null; 
+window.onload = function() {
+
+  document.addEventListener('click', async (event) => {
+    // 1. Find the closest elements relative to the actual click target
+    const container = document.querySelector('.report-content-view-container');
+    const clickedHomeReport = event.target.closest('.home-report'); 
+
+
+    // 2. Handle click ON the home report
+    if (clickedHomeReport && !reportViewActive) {
+      // Ensure container exists before modifying its classes
+      if (container) {
+        reportViewActive = true;
+        currentSite = await site(clickedHomeReport.dataset.id)
+
+        if (document.querySelector('.extra-comments-field')){
+
+          if(currentSite[0].site_description.length <= 0){
+            document.querySelector('.extra-comments-field').textContent = 'No Extra Comments Were Provided '
+          } else {
+            document.querySelector('.extra-comments-field').textContent = currentSite[0].site_description
+          }
+        }
+        container.classList.add('report-content-view-container__active');
+      }
+      return; // Stop processing further logic for this click
+    }
+
+    // 3. Handle click INSIDE the active container
+    if (container) {
+      reportViewActive = false; // Fixed typo from 'fals'
+      container.classList.remove('report-content-view-container__active');
+    }
+  });
+};
+
+
+    
+  </script>
+</body>
+</html>
