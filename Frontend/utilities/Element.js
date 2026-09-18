@@ -1,3 +1,4 @@
+// element js, which is a custom made function for creating html elements efficently from javascript
 function Element(tag) {
   const isPropsObject = (val) =>
     Object.prototype.toString.call(val) === '[object Object]';

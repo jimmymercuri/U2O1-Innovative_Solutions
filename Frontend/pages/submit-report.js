@@ -128,6 +128,7 @@ export const SubmitReport = Element('div', {
 }, [
 
   Element('div', {classList: ['sidebar']}, [
+    Element('p', {textContent: 'Navigation'}),
     Element('div', {classList: ['nav-item'], onclick: () => {window.location.href ='/'}}),
     Element('div', {classList: ['nav-item', 'active'], onclick: () => {window.location.href = '/submit-report'}})
   ]),
@@ -159,7 +160,7 @@ export const SubmitReport = Element('div', {
       Element('textarea', {
         classList: ['report-description'],
         name: 'description',
-        placeholder: 'Extra Comments'
+        placeholder: 'Description'
       })
 
     ]),

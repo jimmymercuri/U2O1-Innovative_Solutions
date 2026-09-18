@@ -144,7 +144,7 @@ body{
 .sidebar {
   position: fixed;
   height: 50vh;
-  width: 44px;
+  width: 88px;
   margin-top: 44px;
   left: 20px;
 
@@ -167,9 +167,19 @@ body{
   padding: 16px;
   border: 1px solid black;
   cursor: pointer;
+
+  transition: all 0.1s ease-in-out;
+
+}
+
+.nav-item:hover{
+  background-color: rgba(144, 238, 144, 0.347);
 }
 
 .active{
+  background-color: black;
+}
+.active:hover{
   background-color: black;
 }
 
@@ -184,6 +194,8 @@ body{
 }
 .report-content-view-container{
   display: none;
+
+  transition: all 0.2s ease-in;
 }
 .report-content-view-container__active{
   position: fixed;
